@@ -97,7 +97,7 @@ struct SignUp: View {
                         } .hidden()
                     }
                     Button("Sign UP"){
-                        MainView()
+                       //navigate to your Main View
                     }
                     
                     NavigationLink(destination: LoginView()){
