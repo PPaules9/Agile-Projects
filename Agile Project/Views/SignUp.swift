@@ -96,6 +96,9 @@ struct SignUp: View {
                         NavigationLink(destination: MainView()){
                         } .hidden()
                     }
+                    Button("Sign UP"){
+                        MainView()
+                    }
                     
                     NavigationLink(destination: LoginView()){
                         Text("Aleardy Have an Account? Login")
