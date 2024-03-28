@@ -13,6 +13,7 @@ struct SignUp: View {
     @State private var name: String = ""
     @State private var password: String = ""
     @State private var showMainView = false
+    @State private var showAlert = false
 
     var body: some View {
         NavigationView{
@@ -20,20 +21,15 @@ struct SignUp: View {
                 Color(.main)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 20){
-                    
+                VStack{
                     
                     Image(.trial)
                         .padding(.vertical)
                         .padding(.horizontal)
                     
-                    
-                    
                     Text("Welcome! 😃")
                         .foregroundColor(.mainBlack)
                         .font(.system(size: 40, weight: .bold, design: .rounded))
-                        .offset(x: -55, y: -50)
-                    
                     
                     Text("Your Project is about to be Ready")
                         .font(.title2)
@@ -41,7 +37,6 @@ struct SignUp: View {
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal)
                         .shadow(radius: 10)
-                        .offset(x: -30, y: -58)
                     
                     
                     TextField("Name", text: $name)
@@ -72,46 +67,46 @@ struct SignUp: View {
                         .frame(width: 350, height: 1)
                         .foregroundColor(.white)
                     
-                    
-                    Spacer()
-                    
-                    Button("Sign Up") {
+                    Button("Done"){
                         if email != "" && password != "" {
                             register()
-                            showMainView = true
+                            showAlert = true
                         } else {
                             //Create an Alert
                             print("no")
                         }
-                    }
-                    .bold()
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 60)
-                    .background(Color.blue)
-                    .cornerRadius(15)
-                    .shadow(radius: 10)
-                   
-                    if showMainView == true {
-                        NavigationLink(destination: MainView()){
-                        } .hidden()
-                    }
-                    Button("Sign UP"){
-                       //navigate to your Main View
+                    } .alert("Greate you have Created your Account Now click the Button below to Continue", isPresented: $showAlert){
+                        Button("ok",role: .destructive){}
                     }
                     
-                    NavigationLink(destination: LoginView()){
-                        Text("Aleardy Have an Account? Login")
-                }.offset(x: 0, y: -10)
-                    
-                    Spacer()
-                    
+                    if showMainView {
+                        NavigationLink(destination: MainView()) {
+                            Text("Continue")
+                                .bold()
+                                .padding(.horizontal)
+                                .foregroundColor(.white)
+                                .frame(width: 300, height: 60)
+                                .background(Color.blue)
+                                .cornerRadius(15)
+                                .shadow(radius: 10)
+                        }
+                    }
                 }
                 .frame(width: 350)
                 
             }
         }
+        .navigationBarBackButtonHidden()
+        .toolbar(){
+            ToolbarItem(placement: .topBarTrailing){
+                NavigationLink(destination: LoginView()){
+                    Text("Login")
+                }
+            }
+        }
+
     }
+    
     
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) {

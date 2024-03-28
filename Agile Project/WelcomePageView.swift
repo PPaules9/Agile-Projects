@@ -13,6 +13,7 @@ struct WelcomePageView: View {
     var body: some View {
         if userIsLoggedIn {
             MainView()
+            
         } else {
             content
         }
