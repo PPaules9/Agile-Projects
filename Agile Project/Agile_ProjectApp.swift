@@ -11,7 +11,9 @@ import Firebase
 
 @main
 struct Agile_ProjectApp: App {
-
+@StateObject var viewModel = AuthViewModel()
+    
+    
     init() {
         FirebaseApp.configure()
     }
@@ -19,6 +21,7 @@ struct Agile_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
             WelcomePageView()
+                .environmentObject(viewModel)
         }
     }
 }

@@ -8,10 +8,9 @@ import Firebase
 import SwiftUI
 
 struct LoginView: View {
-    @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var showMainView = false
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack{
@@ -21,7 +20,7 @@ struct LoginView: View {
                 Image(.welcomePic)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 159, height: 120)
+                    .frame(width: 159, height: 80)
                     .padding(.vertical, 32)
                 
                 //A Welcome Message
@@ -29,13 +28,6 @@ struct LoginView: View {
                     Text("Welcome! 😃")
                         .foregroundColor(.mainBlack)
                         .font(.system(size: 40, weight: .bold, design: .rounded))
-                    
-                    Text("Your Project is about to be Ready")
-                        .font(.title2)
-                        .fontWeight(.light)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal)
-                        .shadow(radius: 10)
                     
                     
                     //A Form Field
@@ -51,6 +43,9 @@ struct LoginView: View {
                 
                 // Sign in Button
                 Button {
+                    Task{
+                        try await viewModel.signIn(withEmail: email, password: password)
+                    }
                     print("User is logged in")
                 } label: {
                     HStack {
@@ -64,7 +59,67 @@ struct LoginView: View {
                 .background(Color(.systemBlue))
                 .cornerRadius(10)
                 
+                HStack{
+                    VStack{ Divider()}
+                    Text("or")
+                    VStack{ Divider()}
+                }
+                
+                
+                
+                Button() {
+                    //Open SignInWWithGoogle Function
+            } label: {
+                HStack {
+                    Image("GoogleLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, alignment: .trailing)
+                        .padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    Text("Sign in with Apple")
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    Spacer()
+                }
+                .foregroundColor(.black)
+                .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+            }
+            .background(Color(.systemGray4))
+            .cornerRadius(10)
+                
+                
+                
+                Button() {
+                    //Open SignInWWithGoogle Function
+            } label: {
+                HStack {
+                    Image("GoogleLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, alignment: .trailing)
+                        .padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    Text("Sign in with Google")
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    Spacer()
+                }
+                .foregroundColor(.black)
+                .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+            }
+            .background(Color(.systemGray4))
+            .cornerRadius(10)
                 Spacer()
+                
+                
+                
                 
                 
                 NavigationLink {
@@ -72,20 +127,11 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden()
                 } label: {
                     HStack(spacing: 3){
-                        Text("Don't have an account?")
+                        Text("Don't have an account yet?")
                         Text("Sign up")
                             .fontWeight(.bold)
                     }
                 }
-            }
-        }
-    }
-    
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) {
-            result, error in
-            if error != nil {
-                print(error!.localizedDescription)
             }
         }
     }

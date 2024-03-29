@@ -8,14 +8,15 @@ import Firebase
 import SwiftUI
 
 struct WelcomePageView: View {
-    @State private var userIsLoggedIn = false
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+
     var body: some View {
-        if userIsLoggedIn {
-            MainView()
-            
-        } else {
-            content
+        Group{
+            if viewModel.userSession != nil {
+                MainView()
+            } else {
+                content
+            }
         }
     }
     

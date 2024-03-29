@@ -10,7 +10,7 @@ import SwiftUI
 struct SpikeView: View {
     var body: some View {
         ContentUnavailableView {
-            Label("No Spikes Yet", systemImage: "custom.figure.walk.motion.trianglebadge.exclamationmark.badge.plus")
+            Label("No Spikes Yet", systemImage: "plus")
         } description: {
             Text("There is no Projects yet")
         }

@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+
     var body: some View {
-        ScrollView{
-            Text("This is The Home View")
-            Text("This is The Home View")
-            Text("This is The Home View")
-            Text("This is The Home View")
+        Button{
+            //sign out
+            viewModel.signOut()
+            print("User is Signed Out")
+        } label: {
+            SettingRowView(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color(.systemGray))
         }
+            if viewModel.currentUser == nil {
+                Text("Thier is no viewModel")
+            } else {
+                Text("Mawgoda")
+            }
     }
 }
 

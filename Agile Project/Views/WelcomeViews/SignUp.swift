@@ -6,6 +6,10 @@
 //
 import Firebase
 import SwiftUI
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignUp: View {
     
@@ -13,30 +17,28 @@ struct SignUp: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
+    @EnvironmentObject var viewModel: AuthViewModel
+
     @State private var showMainView = false
+    
+    
     var body: some View {
         NavigationStack{
             VStack{
-                
-                //Adding Image
+                // Image
                 Image(.welcomePic)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 200, height: 120)
+                    .frame(width: 200, height: 80)
                     .padding(.vertical, 32)
                 
-                //A Welcome Message
                 VStack(spacing: 24){
-                    Text("Never Miss a Deadline")
-                        .foregroundColor(.mainBlack)
-                        .font(.system(size: 40, weight: .bold, design: .rounded))
-        
                     //A Form Field
                     
                     InputView(text: $name, title: "Full Name", placeholder: "Enter your name")
                     
                     InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
-                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                        .autocapitalization(.none)
                     
                     InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
                     
@@ -48,6 +50,9 @@ struct SignUp: View {
                 
                 // Sign Up Button
                 Button {
+                    Task{
+                        try await viewModel.signUp(withEmail: email, password: password, fullName: name)
+                    }
                     print("User is Signed Up")
                 } label: {
                     HStack {
@@ -61,6 +66,66 @@ struct SignUp: View {
                 .background(Color(.systemBlue))
                 .cornerRadius(10)
                 .padding(.top, 20)
+                
+                
+                HStack{
+                    VStack{ Divider()}
+                    Text("or")
+                    VStack{ Divider()}
+                }
+                
+                VStack{
+                Button {
+                    //Open SignInWWithGoogle Function
+                } label: {
+                    HStack {
+                        Image("a.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, alignment: .trailing)
+                            .padding(.horizontal)
+                        
+                        Spacer()
+                        
+                        Text("Sign Up with Apple")
+                            .fontWeight(.semibold)
+                        
+                        Spacer()
+                        Spacer()
+                    }
+                    .foregroundColor(.black)
+                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+                }
+                .background(Color(.systemGray4))
+                .cornerRadius(10)
+                
+                    Button() {
+                        //Open SignInWWithGoogle Function
+                } label: {
+                    HStack {
+                        Image("GoogleLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, alignment: .trailing)
+                            .padding(.horizontal)
+                        
+                        Spacer()
+                        
+                        Text("Sign Up with Google")
+                            .fontWeight(.semibold)
+                        
+                        Spacer()
+                        Spacer()
+                    }
+                    .foregroundColor(.black)
+                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+                }
+                .background(Color(.systemGray4))
+                .cornerRadius(10)
+                
+            }
+                .padding(.top, 20)
+                
                 
                 Spacer()
                 
@@ -80,7 +145,41 @@ struct SignUp: View {
         }
     }
     
-    
+//    func signInWithGoogle() async -> Bool {
+//        guard let clientID = FirebaseApp.app()?.options.clientID else {
+//          fatalError("No client ID found in Firebase configuration")
+//        }
+//        let config = GIDConfiguration(clientID: clientID)
+//        GIDSignIn.sharedInstance.configuration = config
+//
+//        guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//              let window = await windowScene.windows.first,
+//              let rootViewController = await window.rootViewController else {
+//          print("There is no root view controller!")
+//          return false
+//        }
+//
+//          do {
+//            let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+//
+//            let user = userAuthentication.user
+//            guard let idToken = user.idToken else {
+//                print( "ID token missing") }
+//            let accessToken = user.accessToken
+//
+//            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
+//                                                           accessToken: accessToken.tokenString)
+//
+//            let result = try await Auth.auth().signIn(with: credential)
+//            let firebaseUser = result.user
+//            print("User \(firebaseUser.uid) signed in with email \(firebaseUser.email ?? "unknown")")
+//            return true
+//          }
+//          catch {
+//            print(error.localizedDescription)
+//            return false
+//          }
+//      }
     
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) {
