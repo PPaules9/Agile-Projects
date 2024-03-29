@@ -9,103 +9,77 @@ import SwiftUI
 
 struct SignUp: View {
     
-    @State private var email: String = ""
     @State private var name: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
+    @State private var confirmPassword: String = ""
     @State private var showMainView = false
-    @State private var showAlert = false
-
     var body: some View {
-        NavigationView{
-            ZStack{
-                Color(.main)
-                    .ignoresSafeArea()
+        NavigationStack{
+            VStack{
                 
-                VStack{
-                    
-                    Image(.trial)
-                        .padding(.vertical)
-                        .padding(.horizontal)
-                    
-                    Text("Welcome! 😃")
+                //Adding Image
+                Image(.welcomePic)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 120)
+                    .padding(.vertical, 32)
+                
+                //A Welcome Message
+                VStack(spacing: 24){
+                    Text("Never Miss a Deadline")
                         .foregroundColor(.mainBlack)
                         .font(.system(size: 40, weight: .bold, design: .rounded))
+        
+                    //A Form Field
                     
-                    Text("Your Project is about to be Ready")
-                        .font(.title2)
-                        .fontWeight(.light)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal)
-                        .shadow(radius: 10)
+                    InputView(text: $name, title: "Full Name", placeholder: "Enter your name")
                     
+                    InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     
-                    TextField("Name", text: $name)
-                        .foregroundColor(.mainBlack)
-                        .textFieldStyle(.plain)
+                    InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
                     
+                    InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Enter your password", isSecureField: true)
                     
-                    Rectangle()
-                        .frame(width: 350, height: 1)
-                        .foregroundColor(.white)
-                    
-                    
-                    TextField("Email", text: $email)
-                        .foregroundColor(.mainBlack)
-                        .textFieldStyle(.plain)
-                    
-                    
-                    Rectangle()
-                        .frame(width: 350, height: 1)
-                        .foregroundColor(.white)
-                    
-                    SecureField("Password", text: $password)
-                        .foregroundColor(.mainBlack)
-                        .textFieldStyle(.plain)
-                    
-                    
-                    Rectangle()
-                        .frame(width: 350, height: 1)
-                        .foregroundColor(.white)
-                    
-                    Button("Done"){
-                        if email != "" && password != "" {
-                            register()
-                            showAlert = true
-                        } else {
-                            //Create an Alert
-                            print("no")
-                        }
-                    } .alert("Greate you have Created your Account Now click the Button below to Continue", isPresented: $showAlert){
-                        Button("ok",role: .destructive){}
-                    }
-                    
-                    if showMainView {
-                        NavigationLink(destination: MainView()) {
-                            Text("Continue")
-                                .bold()
-                                .padding(.horizontal)
-                                .foregroundColor(.white)
-                                .frame(width: 300, height: 60)
-                                .background(Color.blue)
-                                .cornerRadius(15)
-                                .shadow(radius: 10)
-                        }
-                    }
                 }
-                .frame(width: 350)
+                .padding(.horizontal)
+                .padding(.top, 12)
                 
-            }
-        }
-        .navigationBarBackButtonHidden()
-        .toolbar(){
-            ToolbarItem(placement: .topBarTrailing){
-                NavigationLink(destination: LoginView()){
-                    Text("Login")
+                // Sign Up Button
+                Button {
+                    print("User is Signed Up")
+                } label: {
+                    HStack {
+                        Text("SIGN UP")
+                            .fontWeight(.semibold)
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+                }
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+                .padding(.top, 20)
+                
+                Spacer()
+                
+                
+                NavigationLink {
+                    LoginView()
+                        .navigationBarBackButtonHidden()
+                } label: {
+                    HStack(spacing: 3){
+                        Text("Already have an account?")
+                        Text("Login")
+                            .fontWeight(.bold)
+                    }
                 }
             }
+            
         }
-
     }
+    
     
     
     func register() {
@@ -124,12 +98,3 @@ struct SignUp: View {
     SignUp()
 }
 
-
-extension View {
-    func placeholder<Content: View>(when shouldShow: Bool, alignment: Alignment = .leading, @ViewBuilder placeholder: () -> Content) -> some View {
-        ZStack(alignment: alignment){
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
-        }
-    }
-}

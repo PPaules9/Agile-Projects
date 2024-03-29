@@ -47,6 +47,8 @@
 		22D6B6572BB6ECAB00563E04 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6562BB6ECAB00563E04 /* FirebaseRemoteConfigSwift */; };
 		22D6B6592BB6ECAB00563E04 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6582BB6ECAB00563E04 /* FirebaseStorage */; };
 		22D6B65B2BB6ECAB00563E04 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B65A2BB6ECAB00563E04 /* FirebaseStorageCombine-Community */; };
+		22D6B6602BB6F29600563E04 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6B65F2BB6F29600563E04 /* InputView.swift */; };
+		22E36CC62BB7033400FB3425 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CC52BB7033400FB3425 /* SettingRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		22AECE992BA4D86C001099FA /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		22AECE9C2BA4D9F0001099FA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreView.swift; sourceTree = "<group>"; };
+		22D6B65F2BB6F29600563E04 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		22E36CC52BB7033400FB3425 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 				2214D5FC2BAE0A9F002A3B74 /* WelcomePageView.swift */,
 				2214D6002BAF3E77002A3B74 /* SignUp.swift */,
 				227C9DDF2BB2018F00EBFFCC /* LoginView.swift */,
+				22D6B65F2BB6F29600563E04 /* InputView.swift */,
 			);
 			path = WelcomeViews;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			children = (
 				22AECE9C2BA4D9F0001099FA /* ProfileView.swift */,
 				22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */,
+				22E36CC52BB7033400FB3425 /* SettingRowView.swift */,
 			);
 			path = SideViews;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 				22AECE982BA4D861001099FA /* HomeView.swift in Sources */,
 				22AECE9D2BA4D9F0001099FA /* ProfileView.swift in Sources */,
 				2214D6012BAF3E77002A3B74 /* SignUp.swift in Sources */,
+				22E36CC62BB7033400FB3425 /* SettingRowView.swift in Sources */,
+				22D6B6602BB6F29600563E04 /* InputView.swift in Sources */,
 				227C9DE02BB2018F00EBFFCC /* LoginView.swift in Sources */,
 				22AECE962BA4D840001099FA /* Projects.swift in Sources */,
 			);
