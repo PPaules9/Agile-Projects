@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				22AECE842BA4C14A001099FA /* Agile_ProjectApp.swift */,
-				2214D5FC2BAE0A9F002A3B74 /* WelcomePageView.swift */,
 				22AECE932BA4D295001099FA /* MainView.swift */,
 				22AECE9B2BA4D87C001099FA /* Views */,
 				22AECE882BA4C14F001099FA /* Assets.xcassets */,
@@ -147,15 +146,40 @@
 		22AECE9B2BA4D87C001099FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22D6B65C2BB6F04800563E04 /* WelcomeViews */,
+				22D6B65D2BB6F07000563E04 /* MainViews */,
+				22D6B65E2BB6F08900563E04 /* SideViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22D6B65C2BB6F04800563E04 /* WelcomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				2214D5FC2BAE0A9F002A3B74 /* WelcomePageView.swift */,
 				2214D6002BAF3E77002A3B74 /* SignUp.swift */,
 				227C9DDF2BB2018F00EBFFCC /* LoginView.swift */,
+			);
+			path = WelcomeViews;
+			sourceTree = "<group>";
+		};
+		22D6B65D2BB6F07000563E04 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
 				22AECE992BA4D86C001099FA /* SpikeView.swift */,
-				22AECE9C2BA4D9F0001099FA /* ProfileView.swift */,
-				22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */,
 				22AECE952BA4D840001099FA /* Projects.swift */,
 				22AECE972BA4D861001099FA /* HomeView.swift */,
 			);
-			path = Views;
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		22D6B65E2BB6F08900563E04 /* SideViews */ = {
+			isa = PBXGroup;
+			children = (
+				22AECE9C2BA4D9F0001099FA /* ProfileView.swift */,
+				22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */,
+			);
+			path = SideViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
