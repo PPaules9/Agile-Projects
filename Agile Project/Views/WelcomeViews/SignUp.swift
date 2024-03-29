@@ -18,9 +18,6 @@ struct SignUp: View {
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
-
-    @State private var showMainView = false
-    
     
     var body: some View {
         NavigationStack{
@@ -42,8 +39,22 @@ struct SignUp: View {
                     
                     InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
                     
-                    InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Enter your password", isSecureField: true)
-                    
+                    ZStack{
+                        InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Enter your password", isSecureField: true)
+                        if !password.isEmpty && !confirmPassword.isEmpty {
+                            if password == confirmPassword {
+                                Image(systemName: "checkmark.circle")
+                                    .imageScale(.large)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(.systemGreen))
+                            } else {
+                                Image(systemName: "xmark.circle")
+                                    .imageScale(.large)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(.systemRed))
+                            }
+                        }
+                    }
                 }
                 .padding(.horizontal)
                 .padding(.top, 12)
@@ -64,6 +75,8 @@ struct SignUp: View {
                     .frame(width: UIScreen.main.bounds.width - 32, height: 48)
                 }
                 .background(Color(.systemBlue))
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 20)
                 
@@ -75,55 +88,55 @@ struct SignUp: View {
                 }
                 
                 VStack{
-                Button {
-                    //Open SignInWWithGoogle Function
-                } label: {
-                    HStack {
-                        Image("a.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, alignment: .trailing)
-                            .padding(.horizontal)
-                        
-                        Spacer()
-                        
-                        Text("Sign Up with Apple")
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                        Spacer()
+                    Button {
+                        //Open SignInWWithGoogle Function
+                    } label: {
+                        HStack {
+                            Image("a.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30, alignment: .trailing)
+                                .padding(.horizontal)
+                            
+                            Spacer()
+                            
+                            Text("Sign Up with Apple")
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            Spacer()
+                        }
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 48)
                     }
-                    .foregroundColor(.black)
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
-                }
-                .background(Color(.systemGray4))
-                .cornerRadius(10)
-                
+                    .background(Color(.systemGray4))
+                    .cornerRadius(10)
+                    
                     Button() {
                         //Open SignInWWithGoogle Function
-                } label: {
-                    HStack {
-                        Image("GoogleLogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, alignment: .trailing)
-                            .padding(.horizontal)
-                        
-                        Spacer()
-                        
-                        Text("Sign Up with Google")
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                        Spacer()
+                    } label: {
+                        HStack {
+                            Image("GoogleLogo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30, alignment: .trailing)
+                                .padding(.horizontal)
+                            
+                            Spacer()
+                            
+                            Text("Sign Up with Google")
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            Spacer()
+                        }
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 48)
                     }
-                    .foregroundColor(.black)
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+                    .background(Color(.systemGray4))
+                    .cornerRadius(10)
+                    
                 }
-                .background(Color(.systemGray4))
-                .cornerRadius(10)
-                
-            }
                 .padding(.top, 20)
                 
                 
@@ -145,51 +158,51 @@ struct SignUp: View {
         }
     }
     
-//    func signInWithGoogle() async -> Bool {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else {
-//          fatalError("No client ID found in Firebase configuration")
-//        }
-//        let config = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.configuration = config
-//
-//        guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//              let window = await windowScene.windows.first,
-//              let rootViewController = await window.rootViewController else {
-//          print("There is no root view controller!")
-//          return false
-//        }
-//
-//          do {
-//            let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
-//
-//            let user = userAuthentication.user
-//            guard let idToken = user.idToken else {
-//                print( "ID token missing") }
-//            let accessToken = user.accessToken
-//
-//            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
-//                                                           accessToken: accessToken.tokenString)
-//
-//            let result = try await Auth.auth().signIn(with: credential)
-//            let firebaseUser = result.user
-//            print("User \(firebaseUser.uid) signed in with email \(firebaseUser.email ?? "unknown")")
-//            return true
-//          }
-//          catch {
-//            print(error.localizedDescription)
-//            return false
-//          }
-//      }
+    //    func signInWithGoogle() async -> Bool {
+    //        guard let clientID = FirebaseApp.app()?.options.clientID else {
+    //          fatalError("No client ID found in Firebase configuration")
+    //        }
+    //        let config = GIDConfiguration(clientID: clientID)
+    //        GIDSignIn.sharedInstance.configuration = config
+    //
+    //        guard let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
+    //              let window = await windowScene.windows.first,
+    //              let rootViewController = await window.rootViewController else {
+    //          print("There is no root view controller!")
+    //          return false
+    //        }
+    //
+    //          do {
+    //            let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+    //
+    //            let user = userAuthentication.user
+    //            guard let idToken = user.idToken else {
+    //                print( "ID token missing") }
+    //            let accessToken = user.accessToken
+    //
+    //            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
+    //                                                           accessToken: accessToken.tokenString)
+    //
+    //            let result = try await Auth.auth().signIn(with: credential)
+    //            let firebaseUser = result.user
+    //            print("User \(firebaseUser.uid) signed in with email \(firebaseUser.email ?? "unknown")")
+    //            return true
+    //          }
+    //          catch {
+    //            print(error.localizedDescription)
+    //            return false
+    //          }
+    //      }
     
-    func register() {
-        Auth.auth().createUser(withEmail: email, password: password) {
-            result, error in
-            if let e = error { //also means if thier is an error
-                print(e.localizedDescription)
-            } else {
-                showMainView = true
-            }
-        }
+}
+extension SignUp: AuthenticationFormProtocol{
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 5
+        && confirmPassword == password
+        && !name.isEmpty
     }
 }
 

@@ -10,6 +10,9 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
+protocol AuthenticationFormProtocol {
+    var formIsValid: Bool {get }
+}
 
 @MainActor
 class AuthViewModel: ObservableObject {
@@ -79,7 +82,7 @@ class AuthViewModel: ObservableObject {
         //A Function to fetch our user Data
         //We want to go over the Firebase and grap that data to our user here
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
+        guard let snapshot = try? await Firestore.firestore().collection("user").document(uid).getDocument() else { return }
         
         self.currentUser = try? snapshot.data(as: User.self)
         
