@@ -49,6 +49,7 @@
 		22D6B65B2BB6ECAB00563E04 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B65A2BB6ECAB00563E04 /* FirebaseStorageCombine-Community */; };
 		22D6B6602BB6F29600563E04 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6B65F2BB6F29600563E04 /* InputView.swift */; };
 		22E36CC62BB7033400FB3425 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CC52BB7033400FB3425 /* SettingRowView.swift */; };
+		22E36CC82BB706FB00FB3425 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CC72BB706FB00FB3425 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreView.swift; sourceTree = "<group>"; };
 		22D6B65F2BB6F29600563E04 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		22E36CC52BB7033400FB3425 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
+		22E36CC72BB706FB00FB3425 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				22AECE842BA4C14A001099FA /* Agile_ProjectApp.swift */,
 				22AECE932BA4D295001099FA /* MainView.swift */,
+				22E36CC92BB7070B00FB3425 /* Model */,
 				22AECE9B2BA4D87C001099FA /* Views */,
 				22AECE882BA4C14F001099FA /* Assets.xcassets */,
 				22AECE8A2BA4C14F001099FA /* Agile_Project.entitlements */,
@@ -186,6 +189,14 @@
 				22E36CC52BB7033400FB3425 /* SettingRowView.swift */,
 			);
 			path = SideViews;
+			sourceTree = "<group>";
+		};
+		22E36CC92BB7070B00FB3425 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22E36CC72BB706FB00FB3425 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E36CC82BB706FB00FB3425 /* User.swift in Sources */,
 				22AECE942BA4D295001099FA /* MainView.swift in Sources */,
 				22AECE852BA4C14A001099FA /* Agile_ProjectApp.swift in Sources */,
 				22AECE9A2BA4D86C001099FA /* SpikeView.swift in Sources */,
