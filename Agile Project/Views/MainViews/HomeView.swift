@@ -11,18 +11,26 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
-        Button{
-            //sign out
-            viewModel.signOut()
-            print("User is Signed Out")
-        } label: {
-            SettingRowView(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color(.systemGray))
-        }
+        VStack{
+            
             if viewModel.currentUser == nil {
-                Text("Thier is no viewModel")
+                Text("No viewModel")
             } else {
-                Text("Mawgoda")
+                Text("There is viewModel")
             }
+            
+            
+            Button{
+                //sign out
+                viewModel.signOut()
+                print("User is Signed Out")
+                
+                
+                
+            } label: {
+                SettingRowView(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color(.systemGray))
+            }
+        }
     }
 }
 

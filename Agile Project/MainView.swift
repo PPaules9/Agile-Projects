@@ -7,9 +7,10 @@
 import SwiftUI
 
 struct MainView: View {
-
+    @State private var showMenu = false
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             TabView {
                 Projects()
                     .tabItem {
@@ -28,14 +29,18 @@ struct MainView: View {
                     }
                 
             }
+            .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
             .navigationTitle("Agile Projects")
             .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: ProfileView()) {
+                    NavigationLink(destination: ProfileView(isShowing: $showMenu)) {
                         Image(systemName: "person.crop.circle")
                     }
+                    .navigationBarBackButtonHidden()
+
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ShowMoreView()) {
