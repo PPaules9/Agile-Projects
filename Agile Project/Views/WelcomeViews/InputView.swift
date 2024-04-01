@@ -17,6 +17,8 @@ struct InputView: View {
                 .fontWeight(.semibold)
                 .font(.footnote)
             
+            // TextField(placeholder, text: $text)
+            
             if isSecureField {
                 SecureField(placeholder, text: $text)
                     .font(.system(size: 14))

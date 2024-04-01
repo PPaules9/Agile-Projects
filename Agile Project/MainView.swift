@@ -10,8 +10,11 @@ struct MainView: View {
     @State private var showMenu = false
     
     var body: some View {
-        NavigationStack {
+        NavigationStack{
+        ZStack{
+            
             TabView {
+                Divider()
                 Projects()
                     .tabItem {
                         Label("Projects", systemImage: "calendar.badge.checkmark")
@@ -22,35 +25,35 @@ struct MainView: View {
                         Label("Home", systemImage: "house")
                     }
                 
-                                
+                
                 SpikeView()
                     .tabItem {
                         Label("Spike", systemImage: "figure.walk.motion.trianglebadge.exclamationmark")
                     }
                 
             }
-            .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
-            .navigationTitle("Agile Projects")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitleDisplayMode(.automatic)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: ProfileView(isShowing: $showMenu)) {
-                        Image(systemName: "person.crop.circle")
-                    }
-                    .navigationBarBackButtonHidden()
-
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ShowMoreView()) {
-                        Image(systemName: "ellipsis.circle") 
-                        // Menu icon (3 dots)
-                    }
+            
+            ProfileView(isShowing: $showMenu)
+            
+        }
+        
+        .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    showMenu.toggle()
+                }, label: {
+                    Image(systemName: "line.3.horizontal")
+                })
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ShowMoreView()) {
+                    Image(systemName: "ellipsis.circle")
+                    // Menu icon (3 dots)
                 }
             }
         }
-        .navigationBarBackButtonHidden()
+    }
     }
 }
 

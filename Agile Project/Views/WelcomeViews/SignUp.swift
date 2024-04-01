@@ -12,13 +12,13 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 struct SignUp: View {
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
-    @EnvironmentObject var viewModel: AuthViewModel
-    
+
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -41,18 +41,23 @@ struct SignUp: View {
                         InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
                         
                         ZStack{
-                            InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Enter your password", isSecureField: true)
-                            if !password.isEmpty && !confirmPassword.isEmpty {
-                                if password == confirmPassword {
-                                    Image(systemName: "checkmark.circle")
-                                        .imageScale(.large)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(.systemGreen))
-                                } else {
-                                    Image(systemName: "xmark.circle")
-                                        .imageScale(.large)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(.systemRed))
+                            HStack{
+                                InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Enter your password", isSecureField: true)
+                                
+                                Spacer()
+                                
+                                if !password.isEmpty && !confirmPassword.isEmpty {
+                                    if password == confirmPassword {
+                                        Image(systemName: "checkmark.circle")
+                                            .imageScale(.large)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color(.systemGreen))
+                                    } else {
+                                        Image(systemName: "xmark.circle")
+                                            .imageScale(.large)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color(.systemRed))
+                                    }
                                 }
                             }
                         }
@@ -154,6 +159,10 @@ struct SignUp: View {
                                 .fontWeight(.bold)
                         }
                     }
+                    
+                    Spacer()
+                    Spacer()
+
                 }
             }
         }

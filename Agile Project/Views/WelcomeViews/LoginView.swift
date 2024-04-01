@@ -134,6 +134,10 @@ struct LoginView: View {
                             .fontWeight(.bold)
                     }
                 }
+                
+                Spacer()
+                Spacer()
+
             }
         }
     }

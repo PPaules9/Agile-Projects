@@ -24,8 +24,7 @@ struct HomeView: View {
                 //sign out
                 viewModel.signOut()
                 print("User is Signed Out")
-                
-                
+                  
                 
             } label: {
                 SettingRowView(imageName: "arrow.left.circle", title: "Sign Out", tintColor: Color(.systemGray))

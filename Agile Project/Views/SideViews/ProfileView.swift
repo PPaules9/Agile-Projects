@@ -13,39 +13,45 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack{
-        if let user = viewModel.currentUser {
-                Rectangle()
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        isShowing.toggle()
-                    }
-                HStack {
-                    VStack(alignment: .leading, spacing: 32){
-                        Section{
-                            HStack{
-                                Text(user.initials)
-                                    .font(.title)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                                    .frame(width: 72, height: 72)
-                                    .background(Color(.systemGray3))
-                                    .clipShape(Circle())
-                                
-                                VStack (alignment: .leading, spacing: 4 ){
-                                    
-                                    Text(user.fullName)
+            if isShowing {
+                //in Run Comment This
+                //let user = User(id: NSUUID().uuidString, fullName: "Pavly Paules", email:"test@gmail.com")
+                //UnComment this
+                if let user = viewModel.currentUser {
+                    
+                    
+                    Rectangle()
+                        .opacity(0.3)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            isShowing.toggle()
+                        }
+                    HStack {
+                        VStack(alignment: .leading, spacing: 32){
+                            Section{
+                                HStack{
+                                    Text(user.initials)
+                                        .font(.title)
                                         .fontWeight(.semibold)
-                                        .padding(.top, 4)
+                                        .foregroundColor(.white)
+                                        .frame(width: 72, height: 72)
+                                        .background(Color(.systemGray3))
+                                        .clipShape(Circle())
                                     
-                                    Text(user.email)
-                                        .font(.footnote)
-                                        .foregroundStyle(.gray)
-                                    
+                                    VStack (alignment: .leading, spacing: 4 ){
+                                        
+                                        Text(user.fullName)
+                                            .fontWeight(.semibold)
+                                            .padding(.top, 4)
+                                        
+                                        Text(user.email)
+                                            .font(.footnote)
+                                            .foregroundStyle(.gray)
+                                        
+                                    }
                                 }
                             }
-                        }
-                        Section("General"){
+                            
                             HStack{
                                 SettingRowView(imageName: "gear", title: "Version", tintColor: .blue)
                                 
@@ -57,9 +63,8 @@ struct ProfileView: View {
                             }
                             
                             SettingRowView(imageName: "i.circle", title: "About", tintColor: .blue)
-                        }
-                        
-                        Section("Account"){
+                            
+                            
                             Button{
                                 //sign out
                                 viewModel.signOut()
@@ -75,19 +80,24 @@ struct ProfileView: View {
                             } label: {
                                 SettingRowView(imageName: "trash.circle", title: "Delete Account", tintColor: Color(.systemGray))
                             }
+                            
+                            
+                            Spacer()
                         }
+                        .padding()
+                        .frame(width: 275, alignment: .leading)
+                        .background(.white)
                         
                         Spacer()
                     }
-                    .padding()
-                    .frame(width: 280, alignment: .leading)
-                    .background(.white)
                 }
             }
         }
+        .navigationBarBackButtonHidden()
         .transition((.move(edge: .leading)))
-        .animation(.easeInOut, value: isShowing)
+        .animation(.smooth, value: isShowing)
     }
+    
 }
 
 #Preview {

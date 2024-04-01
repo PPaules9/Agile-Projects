@@ -183,9 +183,9 @@
 		22D6B65D2BB6F07000563E04 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				22AECE992BA4D86C001099FA /* SpikeView.swift */,
 				22AECE952BA4D840001099FA /* Projects.swift */,
 				22AECE972BA4D861001099FA /* HomeView.swift */,
+				22AECE992BA4D86C001099FA /* SpikeView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
