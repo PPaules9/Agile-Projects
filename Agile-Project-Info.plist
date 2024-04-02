@@ -15,5 +15,9 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>664682745620-ha8o790i6d1h05l1didjjt4a845da1jv.apps.googleusercontent.com</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>RedditMono-Regular</string>
+	</array>
 </dict>
 </plist>

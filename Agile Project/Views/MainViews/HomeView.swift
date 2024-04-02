@@ -17,6 +17,8 @@ struct HomeView: View {
                 Text("No viewModel")
             } else {
                 Text("There is viewModel")
+                    .font(.custom("Reddit Mono", size: 16))
+
             }
             
             

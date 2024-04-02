@@ -14,6 +14,10 @@ struct Projects: View {
             Label("No Projects", systemImage: "calendar.badge.plus")
         } description: {
             Text("There is no Projects yet")
+                .font(.custom("Charter", size: 16))
+
+            Text("There is no Projects yet")
+                .font(.custom("RedditMono-Regular", size: 16))
         }
         
     }

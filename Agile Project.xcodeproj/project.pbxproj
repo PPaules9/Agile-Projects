@@ -19,6 +19,7 @@
 		22AECE9A2BA4D86C001099FA /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE992BA4D86C001099FA /* SpikeView.swift */; };
 		22AECE9D2BA4D9F0001099FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE9C2BA4D9F0001099FA /* ProfileView.swift */; };
 		22AECE9F2BA4DA00001099FA /* ShowMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */; };
+		22D1C09E2BBB362900253AC3 /* RedditMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */; };
 		22D6B6272BB6ECAB00563E04 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6262BB6ECAB00563E04 /* FirebaseAnalytics */; };
 		22D6B6292BB6ECAB00563E04 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6282BB6ECAB00563E04 /* FirebaseAnalyticsOnDeviceConversion */; };
 		22D6B62B2BB6ECAB00563E04 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B62A2BB6ECAB00563E04 /* FirebaseAnalyticsSwift */; };
@@ -70,6 +71,7 @@
 		22AECE992BA4D86C001099FA /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		22AECE9C2BA4D9F0001099FA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreView.swift; sourceTree = "<group>"; };
+		22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedditMono-Regular.ttf"; sourceTree = "<group>"; };
 		22D6B65F2BB6F29600563E04 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		22E36CC52BB7033400FB3425 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
 		22E36CC72BB706FB00FB3425 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				22AECE932BA4D295001099FA /* MainView.swift */,
 				22E36CC92BB7070B00FB3425 /* Model */,
 				22AECE9B2BA4D87C001099FA /* Views */,
+				22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */,
 				22AECE882BA4C14F001099FA /* Assets.xcassets */,
 				22AECE8A2BA4C14F001099FA /* Agile_Project.entitlements */,
 				22E36CCA2BB715B900FB3425 /* GoogleService-Info.plist */,
@@ -303,6 +306,7 @@
 			files = (
 				22AECE8D2BA4C14F001099FA /* Preview Assets.xcassets in Resources */,
 				22E36CCB2BB715B900FB3425 /* GoogleService-Info.plist in Resources */,
+				22D1C09E2BBB362900253AC3 /* RedditMono-Regular.ttf in Resources */,
 				22AECE892BA4C14F001099FA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

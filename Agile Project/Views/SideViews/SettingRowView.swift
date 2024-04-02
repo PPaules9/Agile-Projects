@@ -20,6 +20,7 @@ struct SettingRowView: View {
                 .foregroundColor(tintColor)
             
             Text(title)
+                .font(.custom("Charter", size: 16))
                 .font(.subheadline)
                 .foregroundColor(.black)
         }

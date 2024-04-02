@@ -13,8 +13,8 @@ struct MainView: View {
         NavigationStack{
         ZStack{
             
+            Divider()
             TabView {
-                Divider()
                 Projects()
                     .tabItem {
                         Label("Projects", systemImage: "calendar.badge.checkmark")
