@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2214D5FD2BAE0A9F002A3B74 /* WelcomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2214D5FC2BAE0A9F002A3B74 /* WelcomePageView.swift */; };
 		2214D6012BAF3E77002A3B74 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2214D6002BAF3E77002A3B74 /* SignUp.swift */; };
+		2233AAA62BBDE44A004DA6D7 /* Welcome Phase in Resources */ = {isa = PBXBuildFile; fileRef = 2233AAA52BBDE44A004DA6D7 /* Welcome Phase */; };
 		227C9DE02BB2018F00EBFFCC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C9DDF2BB2018F00EBFFCC /* LoginView.swift */; };
 		22AECE852BA4C14A001099FA /* Agile_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE842BA4C14A001099FA /* Agile_ProjectApp.swift */; };
 		22AECE892BA4C14F001099FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AECE882BA4C14F001099FA /* Assets.xcassets */; };
@@ -19,7 +20,6 @@
 		22AECE9A2BA4D86C001099FA /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE992BA4D86C001099FA /* SpikeView.swift */; };
 		22AECE9D2BA4D9F0001099FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE9C2BA4D9F0001099FA /* ProfileView.swift */; };
 		22AECE9F2BA4DA00001099FA /* ShowMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */; };
-		22D1C09E2BBB362900253AC3 /* RedditMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */; };
 		22D6B6272BB6ECAB00563E04 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6262BB6ECAB00563E04 /* FirebaseAnalytics */; };
 		22D6B6292BB6ECAB00563E04 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B6282BB6ECAB00563E04 /* FirebaseAnalyticsOnDeviceConversion */; };
 		22D6B62B2BB6ECAB00563E04 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B62A2BB6ECAB00563E04 /* FirebaseAnalyticsSwift */; };
@@ -49,16 +49,15 @@
 		22D6B65B2BB6ECAB00563E04 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 22D6B65A2BB6ECAB00563E04 /* FirebaseStorageCombine-Community */; };
 		22D6B6602BB6F29600563E04 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6B65F2BB6F29600563E04 /* InputView.swift */; };
 		22E36CC62BB7033400FB3425 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CC52BB7033400FB3425 /* SettingRowView.swift */; };
-		22E36CC82BB706FB00FB3425 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CC72BB706FB00FB3425 /* User.swift */; };
 		22E36CCB2BB715B900FB3425 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E36CCA2BB715B900FB3425 /* GoogleService-Info.plist */; };
 		22E36CCE2BB716E500FB3425 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 22E36CCD2BB716E500FB3425 /* GoogleSignIn */; };
 		22E36CD02BB716E500FB3425 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22E36CCF2BB716E500FB3425 /* GoogleSignInSwift */; };
-		22E36CD52BB73E4A00FB3425 /* AuthenticationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E36CD42BB73E4900FB3425 /* AuthenticationHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2214D5FC2BAE0A9F002A3B74 /* WelcomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageView.swift; sourceTree = "<group>"; };
 		2214D6002BAF3E77002A3B74 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		2233AAA52BBDE44A004DA6D7 /* Welcome Phase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Welcome Phase"; sourceTree = "<group>"; };
 		227C9DDF2BB2018F00EBFFCC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		22AECE812BA4C14A001099FA /* Agile Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agile Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AECE842BA4C14A001099FA /* Agile_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agile_ProjectApp.swift; sourceTree = "<group>"; };
@@ -71,13 +70,10 @@
 		22AECE992BA4D86C001099FA /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		22AECE9C2BA4D9F0001099FA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		22AECE9E2BA4DA00001099FA /* ShowMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreView.swift; sourceTree = "<group>"; };
-		22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedditMono-Regular.ttf"; sourceTree = "<group>"; };
 		22D6B65F2BB6F29600563E04 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		22E36CC52BB7033400FB3425 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
-		22E36CC72BB706FB00FB3425 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22E36CCA2BB715B900FB3425 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22E36CD12BB7171500FB3425 /* Agile-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Agile-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
-		22E36CD42BB73E4900FB3425 /* AuthenticationHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +139,6 @@
 				22AECE932BA4D295001099FA /* MainView.swift */,
 				22E36CC92BB7070B00FB3425 /* Model */,
 				22AECE9B2BA4D87C001099FA /* Views */,
-				22D1C09D2BBB362800253AC3 /* RedditMono-Regular.ttf */,
 				22AECE882BA4C14F001099FA /* Assets.xcassets */,
 				22AECE8A2BA4C14F001099FA /* Agile_Project.entitlements */,
 				22E36CCA2BB715B900FB3425 /* GoogleService-Info.plist */,
@@ -178,7 +173,6 @@
 				2214D6002BAF3E77002A3B74 /* SignUp.swift */,
 				227C9DDF2BB2018F00EBFFCC /* LoginView.swift */,
 				22D6B65F2BB6F29600563E04 /* InputView.swift */,
-				22E36CD42BB73E4900FB3425 /* AuthenticationHandle.swift */,
 			);
 			path = WelcomeViews;
 			sourceTree = "<group>";
@@ -206,7 +200,7 @@
 		22E36CC92BB7070B00FB3425 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				22E36CC72BB706FB00FB3425 /* User.swift */,
+				2233AAA52BBDE44A004DA6D7 /* Welcome Phase */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,7 +300,7 @@
 			files = (
 				22AECE8D2BA4C14F001099FA /* Preview Assets.xcassets in Resources */,
 				22E36CCB2BB715B900FB3425 /* GoogleService-Info.plist in Resources */,
-				22D1C09E2BBB362900253AC3 /* RedditMono-Regular.ttf in Resources */,
+				2233AAA62BBDE44A004DA6D7 /* Welcome Phase in Resources */,
 				22AECE892BA4C14F001099FA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22E36CC82BB706FB00FB3425 /* User.swift in Sources */,
 				22AECE942BA4D295001099FA /* MainView.swift in Sources */,
 				22AECE852BA4C14A001099FA /* Agile_ProjectApp.swift in Sources */,
 				22AECE9A2BA4D86C001099FA /* SpikeView.swift in Sources */,
@@ -331,7 +324,6 @@
 				22D6B6602BB6F29600563E04 /* InputView.swift in Sources */,
 				227C9DE02BB2018F00EBFFCC /* LoginView.swift in Sources */,
 				22AECE962BA4D840001099FA /* Projects.swift in Sources */,
-				22E36CD52BB73E4A00FB3425 /* AuthenticationHandle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

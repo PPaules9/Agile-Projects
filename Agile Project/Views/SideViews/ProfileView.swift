@@ -201,6 +201,7 @@ struct ProfileView: View {
                                         .font(.custom("Charter", size: 13))
                                         .font(.body)
                                         .multilineTextAlignment(.center)
+                                        .padding(.leading, 5.0)
                                         
                                 }
                                 
@@ -208,8 +209,8 @@ struct ProfileView: View {
                             
                         }
                         .padding()
-                        .frame(width: 280, alignment: .leading)
-                        .background(.white)
+                        .frame(width: 285, alignment: .leading)
+                        .background(Color(.main))
                         
                         Spacer()
                            

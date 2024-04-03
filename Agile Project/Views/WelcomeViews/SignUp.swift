@@ -8,8 +8,8 @@ import Firebase
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
-import GoogleSignIn
-import GoogleSignInSwift
+//import GoogleSignIn
+//import GoogleSignInSwift
 
 struct SignUp: View {
     @EnvironmentObject var viewModel: AuthViewModel
